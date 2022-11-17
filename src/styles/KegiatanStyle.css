@@ -1,0 +1,35 @@
+
+.container .row .col .card{
+    background: #FFFFFF;
+    box-shadow: 0px 0px 0.961453px rgba(20, 20, 20, 0.08), 0px 0.961453px 7.69162px 1.92291px rgba(20, 20, 20, 0.08);
+    border-radius: 15px;
+}
+
+.container .row .col .card img {
+    border-radius: 15px 15px 0 0;
+}
+
+.container .card-body h5{
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #000000;
+}
+
+.container .card-body p{
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 21px;
+    color: #000000;
+}
+
+.container .card-body button{
+    background: #9EB23B;
+    border-radius: 48px;
+    font-size: 14px;
+    color: white;
+}
