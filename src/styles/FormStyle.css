@@ -1,4 +1,4 @@
-/* .container .card{
+.form-daftar .form-card{
     justify-content: center;
     align-items: center;
     background: #FFFFFE;
@@ -6,22 +6,22 @@
     border-radius: 9.02435px;
 }
 
-.container .card .card-body .form-label span{
+.form-daftar .form-card .form-card-body label span{
     color: red;
 }
 
-.container button{
+.form-daftar button{
     border: none;
     background: none;
 }
 
-.card .card-body label{
+.form-daftar .form-card .form-card-body label{
     margin: 14px;
 }
 
-.card .card-body button{
+.form-daftar .form-card .form-card-body button{
     background: #9EB23B;
     border-radius: 27px;
     color: white;
     margin: 14px;
-} */
+}

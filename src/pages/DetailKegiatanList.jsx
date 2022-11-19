@@ -1,55 +1,57 @@
 import '../styles/DetKegiatanStyle.css'
 import { useEffect, useState } from "react"
 import axios from 'axios'
-import {useParams} from 'react-router-dom'
+import {useParams, useNavigate} from 'react-router-dom'
 
-function DetailKegiatan (){
+function DetailKegiatanList (){
     const {id} = useParams()
     const [showDetail, setShowDetail] = useState([])
+    const navigation = useNavigate()
 
     useEffect(() => {
         document.title = "Detail Relawan"
-        axios.get(`https://634b803dd90b984a1e3ac3f4.mockapi.io/api/fe9/apiPenyimpananDataPendaftaran/${id}`)
+        axios.get(`https://634b803dd90b984a1e3ac3f4.mockapi.io/api/fe9/apiPendaftaranVolunteer/${id}`)
         .then((result) => {
             setShowDetail(result.data)
         })
     }, [id])
 
-    console.log(showDetail);
-
+    function handleDaftar(id) {
+        navigation(`/daftar/${id}`)
+    }
     return(
         <>
         <nav className="navbar navbar-light">
             <div className="container">
-                <a href="/" className="navbar-brand mb-0 h1"><i className="fas fa-arrow-left"></i> Back</a>
+                <a href="/list-relawan" className="navbar-brand mb-0 h1"><i className="fas fa-arrow-left"></i> Back</a>
             </div>
         </nav>
 
         <div className="detail container">
             <div className="detail-card card mt-4 mb-4">
-                <img src={showDetail.gambar_event} alt="logo list volunteer" />
+                <img src={showDetail.gambar} alt="logo list volunteer" />
                 <div className="detail-card-body card-body">
                     <h5 className="card-title">{showDetail.title}</h5>
                     <p className="card-text"><small className="text-muted">Alamat Kegiatan:</small></p>
                     <p className="card-text"><i className="fas fa-map-marked-alt"></i> {showDetail.address}</p>
                     <p className="card-text"><small className="text-muted">Periode Kegiatan:</small></p>
-                    <p className="card-text"><i className="far fa-clock"></i> {showDetail.periode_event}</p>
+                    <p className="card-text"><i className="far fa-clock"></i> {showDetail.periode}</p>
                     <p className="detail-card-style card-text">Rincian Kegiatan: </p>
-                    <p className="card-text">{showDetail.detail_aktivitas}</p>
+                    <p className="card-text">{showDetail.detail_activities}</p>
                     <p className="detail-card-style card-style card-text" >Kriteria Relawan: </p>
-                    <p className=" card-text">{showDetail.volunteer_requirment}</p>
+                    <p className=" card-text">{showDetail.volunteer_requirement}</p>
                 </div>
             </div>
         </div>
         
 
-        {/* <nav className="detail-nav navbar navbar-light">
+        <nav className="detail-nav navbar navbar-light">
             <div className="container justify-content-end">
-                <input type="button" className="btn" value="Daftar"/>
+                <input type="button" className="btn" onClick={() => handleDaftar(showDetail.id)} value="Daftar"/>
             </div>
-        </nav> */}
+        </nav>
         </>
     )
 }
 
-export default DetailKegiatan
+export default DetailKegiatanList
